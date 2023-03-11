@@ -8,12 +8,14 @@ import { MaterialModule } from './material/material.module';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksListComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
