@@ -72,3 +72,6 @@ Reader should not be able to add / modify / delete existing book information or 
 but should be able to save favorites and check out / return books (that they have checked out)
 * Containerize your application to make it cloud-native
 
+# Fix for Angular
+https://stackoverflow.com/a/49381911/14329401
+
