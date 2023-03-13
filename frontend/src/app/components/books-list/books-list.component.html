@@ -12,5 +12,6 @@
 </div>
 <div class="pagination">
   <app-pagination *ngIf="page < (books$ | async)!.totalPages" [currentPage]="page" [totalPages]="(books$ | async)!.totalPages"></app-pagination>
+  <app-sort-component></app-sort-component>
 </div>
 

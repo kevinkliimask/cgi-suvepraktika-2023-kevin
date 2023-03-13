@@ -3,7 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import { Observable } from 'rxjs';
 
 import { BookService } from '../../services/book.service';
-import { Page } from '../../models/page';
+import {Page, SortDirection} from '../../models/page';
 import { Book } from '../../models/book';
 
 @Component({
@@ -27,7 +27,10 @@ export class BooksListComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe(async (params) => {
       this.page = +(params.get('page') ?? 1);
       if (this.page < 1) this.page = 1;
-      this.books$ = this.bookService.getBooks({pageIndex: this.page - 1});
+
+      const sort = params.get('sort') === 'asc' || params.get('sort') === 'desc';
+
+      this.books$ = this.bookService.getBooks({pageIndex: this.page - 1, sort: sort ? 'title' : undefined, direction: sort ? <SortDirection>params.get('sort') : undefined});
     })
   }
 }
