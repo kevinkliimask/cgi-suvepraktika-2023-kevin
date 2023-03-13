@@ -1,3 +1,3 @@
-<button mat-raised-button *ngIf="currentIndex !== minIndex" (click)="changePage(1)">Previous</button>
-<span>{{ currentIndex }}</span>
-<button mat-raised-button *ngIf="currentIndex !== maxIndex" (click)="changePage(-1)">Next</button>
+<a mat-raised-button *ngIf="currentPage > 1" [routerLink]="['.']" [queryParams]="{page: currentPage - 1}">Previous</a>
+<span>{{ currentPage }}</span>
+<a mat-raised-button *ngIf="currentPage < totalPages" [routerLink]="['.']" [queryParams]="{page: currentPage + 1}">Next</a>

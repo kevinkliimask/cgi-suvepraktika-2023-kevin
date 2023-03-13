@@ -11,6 +11,6 @@
   </mat-card>
 </div>
 <div class="pagination">
-  <app-pagination [currentIndex]="1" [minIndex]="0" [maxIndex]="5"></app-pagination>
+  <app-pagination *ngIf="page < (books$ | async)!.totalPages" [currentPage]="page" [totalPages]="(books$ | async)!.totalPages"></app-pagination>
 </div>
 

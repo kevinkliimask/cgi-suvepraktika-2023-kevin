@@ -1,27 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../../services/book.service';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import { Observable } from 'rxjs';
+
+import { BookService } from '../../services/book.service';
 import { Page } from '../../models/page';
 import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-books-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './books-list.component.html',
   styleUrls: ['./books-list.component.scss']
 })
 export class BooksListComponent implements OnInit {
 
   books$!: Observable<Page<Book>>;
+  page!: number;
 
   constructor(
     private bookService: BookService,
+    private readonly activatedRoute: ActivatedRoute,
   ) {
   }
 
   ngOnInit(): void {
-    // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
-    this.books$ = this.bookService.getBooks({});
-
+    this.activatedRoute.queryParamMap.subscribe(async (params) => {
+      this.page = +(params.get('page') ?? 1);
+      if (this.page < 1) this.page = 1;
+      this.books$ = this.bookService.getBooks({pageIndex: this.page - 1});
+    })
   }
-
 }
