@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import { Page, PageRequest } from '../models/page';
 import { Book } from '../models/book';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RestUtil } from './rest-util';
 
@@ -26,9 +27,9 @@ export class BookService {
     return this.http.get<Book>(url, { params });
   }
 
-  saveBook(book: Book): Observable<void> {
+  saveBook(book: Book): Observable<string> {
     const url = this.baseUrl + '/saveBook';
-    return this.http.post<void>(url, book);
+    return this.http.post(url, book, { responseType: 'text' });
   }
 
   deleteBook(bookId: string): Observable<void> {
