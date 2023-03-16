@@ -10,6 +10,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SortComponentComponent } from './components/sort-component/sort-component.component';
+import { CheckoutsListComponent } from './components/checkouts-list/checkouts-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SortComponentComponent } from './components/sort-component/sort-compone
     BooksListComponent,
     BookDetailComponent,
     PaginationComponent,
-    SortComponentComponent
+    SortComponentComponent,
+    CheckoutsListComponent
   ],
   imports: [
     BrowserModule,

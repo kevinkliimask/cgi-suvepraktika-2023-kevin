@@ -1,23 +1,23 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { BookService } from '../../services/book.service';
 import { Page, SortDirection } from '../../models/page';
-import { Book } from '../../models/book';
+import { Checkout } from '../../models/checkout';
+import { CheckoutService } from '../../services/checkout.service';
 
 @Component({
-  selector: 'app-books-list',
+  selector: 'app-checkouts-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './books-list.component.html',
-  styleUrls: ['./books-list.component.scss'],
+  templateUrl: './checkouts-list.component.html',
+  styleUrls: ['./checkouts-list.component.scss'],
 })
-export class BooksListComponent implements OnInit {
-  books$!: Observable<Page<Book>>;
+export class CheckoutsListComponent {
+  checkouts$!: Observable<Page<Checkout>>;
   page!: number;
 
   constructor(
-    private bookService: BookService,
+    private checkoutService: CheckoutService,
     private readonly activatedRoute: ActivatedRoute
   ) {}
 
@@ -29,9 +29,9 @@ export class BooksListComponent implements OnInit {
       const sort =
         params.get('sort') === 'asc' || params.get('sort') === 'desc';
 
-      this.books$ = this.bookService.getBooks({
+      this.checkouts$ = this.checkoutService.getCheckouts({
         pageIndex: this.page - 1,
-        sort: sort ? 'title' : undefined,
+        sort: sort ? 'borrowedBook.title' : undefined,
         direction: sort ? <SortDirection>params.get('sort') : undefined,
       });
     });
