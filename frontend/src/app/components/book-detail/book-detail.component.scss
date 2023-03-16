@@ -1,0 +1,28 @@
+.container {
+  max-width: 512px;
+  margin: 2rem auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    margin: 2rem auto;
+    width: fit-content;
+
+    mat-form-field {
+      width: 26rem;
+
+      ::ng-deep input {
+        color: #000000;
+      }
+    }
+
+    .buttons {
+      margin: 0 auto;
+
+      button {
+        margin: 0 1rem;
+      }
+    }
+  }
+}
