@@ -1,0 +1,4 @@
+<span>Sort by:</span>
+<a mat-raised-button [routerLink]="['.']" [queryParams]="{sort: null}" queryParamsHandling="merge">None</a>
+<a mat-raised-button [routerLink]="['.']" [queryParams]="{sort: 'asc'}" queryParamsHandling="merge">ASC</a>
+<a mat-raised-button [routerLink]="['.']" [queryParams]="{sort: 'desc'}" queryParamsHandling="merge">DESC</a>
