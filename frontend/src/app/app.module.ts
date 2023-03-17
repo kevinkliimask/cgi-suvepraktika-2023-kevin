@@ -13,6 +13,7 @@ import { SortComponentComponent } from './components/sort-component/sort-compone
 import { CheckoutsListComponent } from './components/checkouts-list/checkouts-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookCheckoutComponent } from './components/book-checkout/book-checkout.component';
+import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BookCheckoutComponent } from './components/book-checkout/book-checkout.
     SortComponentComponent,
     CheckoutsListComponent,
     BookCheckoutComponent,
+    CheckoutDetailComponent,
   ],
   imports: [
     BrowserModule,
