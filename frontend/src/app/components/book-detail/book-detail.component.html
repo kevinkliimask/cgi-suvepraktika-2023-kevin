@@ -24,6 +24,7 @@
           <button mat-raised-button *ngIf="!editing" (click)="toggleEditing()">Edit</button>
           <button mat-raised-button type="submit" *ngIf="editing">Save changes</button>
           <button mat-raised-button *ngIf="editing" (click)="toggleEditing()">Cancel</button>
+          <a mat-raised-button *ngIf="!editing" [disabled]="book && book.status !== 'AVAILABLE'" routerLink="checkout">Check out</a>
         </div>
       </form>
     </mat-card-content>

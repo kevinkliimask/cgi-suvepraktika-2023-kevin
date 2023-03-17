@@ -1,5 +1,6 @@
 package com.cgi.library.entity;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,8 +13,10 @@ import java.util.UUID;
 public class CheckOut {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column
-    @Type(type="uuid-char")
+    @Type(type = "uuid-char")
     private UUID id;
 
     @Column(name = "borrower_first_name")

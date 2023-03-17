@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { take } from 'rxjs';
@@ -9,6 +9,7 @@ import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-book-detail',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss'],
 })
@@ -29,8 +30,8 @@ export class BookDetailComponent implements OnInit {
   editing = false;
 
   constructor(
-    private route: ActivatedRoute,
-    private bookService: BookService
+    private bookService: BookService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SortComponentComponent } from './components/sort-component/sort-component.component';
 import { CheckoutsListComponent } from './components/checkouts-list/checkouts-list.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+import { BookCheckoutComponent } from './components/book-checkout/book-checkout.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     PaginationComponent,
     SortComponentComponent,
     CheckoutsListComponent,
+    BookCheckoutComponent,
   ],
   imports: [
     BrowserModule,

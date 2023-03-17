@@ -1,6 +1,7 @@
 package com.cgi.library.controller;
 
 import com.cgi.library.model.CheckOutDTO;
+import com.cgi.library.model.CreateCheckOutDTO;
 import com.cgi.library.service.CheckOutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,8 +29,8 @@ public class CheckOutController {
     }
 
     @PostMapping(value = "checkout")
-    public ResponseEntity<String> saveCheckOut(@RequestBody CheckOutDTO checkOutDTO) {
-        checkOutService.saveCheckOut(checkOutDTO);
+    public ResponseEntity<String> saveCheckOut(@RequestBody CreateCheckOutDTO createCheckOutDTO) {
+        checkOutService.saveCheckOut(createCheckOutDTO);
         return ResponseEntity.ok("");
     }
 

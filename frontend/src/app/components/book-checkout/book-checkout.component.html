@@ -1,0 +1,17 @@
+<div class="container mat-elevation-z4">
+  <mat-card-title>Please enter your name</mat-card-title>
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-label>First name</mat-label>
+      <mat-form-field appearance="outline"><input matInput formControlName="borrowerFirstName"></mat-form-field>
+      <mat-label>Last name</mat-label>
+      <mat-form-field appearance="outline"><input matInput formControlName="borrowerLastName"></mat-form-field>
+        <div class="buttons">
+          <button mat-raised-button type="submit">Submit</button>
+          <button mat-raised-button routerLink="../">Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
