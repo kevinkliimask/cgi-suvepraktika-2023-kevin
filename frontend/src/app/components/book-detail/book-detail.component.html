@@ -3,13 +3,13 @@
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-label>Title</mat-label>
-        <mat-form-field appearance="outline"><input matInput required formControlName="title"></mat-form-field>
+        <mat-form-field appearance="outline"><input matInput formControlName="title"></mat-form-field>
         <mat-label>Author</mat-label>
-        <mat-form-field appearance="outline"><input matInput required formControlName="author"></mat-form-field>
+        <mat-form-field appearance="outline"><input matInput formControlName="author"></mat-form-field>
         <mat-label>Genre</mat-label>
-        <mat-form-field appearance="outline"><input matInput required formControlName="genre"></mat-form-field>
+        <mat-form-field appearance="outline"><input matInput formControlName="genre"></mat-form-field>
         <mat-label>Year</mat-label>
-        <mat-form-field appearance="outline"><input matInput required formControlName="year"></mat-form-field>
+        <mat-form-field appearance="outline"><input matInput formControlName="year"></mat-form-field>
         <mat-label>Added</mat-label>
         <mat-form-field appearance="outline"><input matInput formControlName="added"></mat-form-field>
         <mat-label>Checkout count</mat-label>
