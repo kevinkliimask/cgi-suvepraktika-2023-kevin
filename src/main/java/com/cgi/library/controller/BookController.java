@@ -18,8 +18,8 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping(value = "getBooks")
-    public ResponseEntity<Page<BookDTO>> getBooks(Pageable pageable) {
-        return ResponseEntity.ok(bookService.getBooks(pageable));
+    public ResponseEntity<Page<BookDTO>> getBooks(Pageable pageable, @RequestParam(value = "search_query", required = false) String searchQuery) {
+        return ResponseEntity.ok(bookService.getBooks(pageable, searchQuery));
     }
 
     @GetMapping(value = "getBook")

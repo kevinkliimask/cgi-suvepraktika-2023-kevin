@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
@@ -9,7 +9,6 @@ import { Checkout } from '../../models/checkout';
 
 @Component({
   selector: 'app-checkout-detail',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './checkout-detail.component.html',
   styleUrls: ['./checkout-detail.component.scss'],
 })

@@ -9,7 +9,7 @@
         <mat-label>Borrowed book title</mat-label>
         <mat-form-field appearance="outline" subscriptSizing="dynamic"><input matInput formControlName="borrowedBookTitle">
         </mat-form-field>
-        <a [routerLink]="['/', 'books', checkout.borrowedBook.id]">View book details</a>
+        <a [routerLink]="checkout && ['/', 'books', checkout.borrowedBook.id]">View book details</a>
         <mat-label>Checked out date</mat-label>
         <mat-form-field appearance="outline"><input matInput formControlName="checkedOutDate"></mat-form-field>
         <mat-label>Due date</mat-label>

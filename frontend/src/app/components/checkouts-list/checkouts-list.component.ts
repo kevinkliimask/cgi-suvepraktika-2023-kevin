@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,6 @@ import { CheckoutService } from '../../services/checkout.service';
 
 @Component({
   selector: 'app-checkouts-list',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './checkouts-list.component.html',
   styleUrls: ['./checkouts-list.component.scss'],
 })

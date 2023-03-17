@@ -1,0 +1,4 @@
+<span>Filter by:</span>
+<a mat-raised-button [routerLink]="['.']" [queryParams]="{search_query: null}" queryParamsHandling="merge">None</a>
+<a mat-raised-button [routerLink]="['.']" [queryParams]="{search_query: 'AVAILABLE'}" queryParamsHandling="merge">Available</a>
+<a mat-raised-button [routerLink]="['.']" [queryParams]="{search_query: 'BORROWED'}" queryParamsHandling="merge">Borrowed</a>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,6 @@ import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-books-list',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './books-list.component.html',
   styleUrls: ['./books-list.component.scss'],
 })
@@ -33,6 +32,7 @@ export class BooksListComponent implements OnInit {
         pageIndex: this.page - 1,
         sort: sort ? 'title' : undefined,
         direction: sort ? <SortDirection>params.get('sort') : undefined,
+        searchQuery: params.get('search_query') ?? undefined,
       });
     });
   }

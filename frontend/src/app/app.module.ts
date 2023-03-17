@@ -9,11 +9,12 @@ import { BooksListComponent } from './components/books-list/books-list.component
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import { SortComponentComponent } from './components/sort-component/sort-component.component';
+import { SortComponent } from './components/sort/sort.component';
 import { CheckoutsListComponent } from './components/checkouts-list/checkouts-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BookCheckoutComponent } from './components/book-checkout/book-checkout.component';
 import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { CheckoutDetailComponent } from './components/checkout-detail/checkout-d
     BooksListComponent,
     BookDetailComponent,
     PaginationComponent,
-    SortComponentComponent,
+    SortComponent,
     CheckoutsListComponent,
     BookCheckoutComponent,
     CheckoutDetailComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

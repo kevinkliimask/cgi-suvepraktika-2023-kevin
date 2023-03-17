@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { take } from 'rxjs';
@@ -9,7 +9,6 @@ import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-book-detail',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss'],
 })
