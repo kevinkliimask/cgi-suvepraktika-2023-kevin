@@ -1,10 +1,13 @@
 package com.cgi.library.model;
 
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 public class CreateCheckOutDTO {
+    @NotBlank()
     private String borrowerFirstName;
 
+    @NotBlank()
     private String borrowerLastName;
 
     private UUID borrowedBookId;

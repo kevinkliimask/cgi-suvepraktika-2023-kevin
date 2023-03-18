@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
@@ -29,7 +30,7 @@ public class CheckOutController {
     }
 
     @PostMapping(value = "checkout")
-    public ResponseEntity<String> saveCheckOut(@RequestBody CreateCheckOutDTO createCheckOutDTO) {
+    public ResponseEntity<String> saveCheckOut(@RequestBody @Valid CreateCheckOutDTO createCheckOutDTO) {
         checkOutService.saveCheckOut(createCheckOutDTO);
         return ResponseEntity.ok("");
     }
