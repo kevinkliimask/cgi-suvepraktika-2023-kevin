@@ -1,5 +1,9 @@
 .mat-toolbar-row, .mat-toolbar-single-row {
-  height: 35px;
+  height: 3.5rem;
+
+  app-search-bar {
+    margin-left: auto;
+  }
 }
 
 .footer {

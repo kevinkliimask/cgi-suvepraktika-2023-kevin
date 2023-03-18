@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { BookService } from '../../services/book.service';
-import { Page, SortDirection } from '../../models/page';
-import { Book } from '../../models/book';
+import { BookService } from '../../../services/book.service';
+import { Page, SortDirection } from '../../../models/page';
+import { Book } from '../../../models/book';
 
 @Component({
   selector: 'app-books-list',

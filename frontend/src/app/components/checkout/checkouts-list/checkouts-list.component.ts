@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Page, SortDirection } from '../../models/page';
-import { Checkout } from '../../models/checkout';
-import { CheckoutService } from '../../services/checkout.service';
+import { Page, SortDirection } from '../../../models/page';
+import { Checkout } from '../../../models/checkout';
+import { CheckoutService } from '../../../services/checkout.service';
 
 @Component({
   selector: 'app-checkouts-list',

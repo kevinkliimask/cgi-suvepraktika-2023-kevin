@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 
-import { CheckoutService } from '../../services/checkout.service';
+import { CheckoutService } from '../../../services/checkout.service';
 
 @Component({
   selector: 'app-book-checkout',

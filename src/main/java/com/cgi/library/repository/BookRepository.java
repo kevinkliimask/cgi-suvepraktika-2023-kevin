@@ -12,9 +12,9 @@ import java.util.UUID;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, UUID> {
-    @Query("SELECT b FROM Book b WHERE b.title LIKE CONCAT('%', :keyword, '%')" +
-            "OR b.author LIKE CONCAT('%', :keyword, '%')" +
-            "OR b.comment LIKE CONCAT('%', :keyword, '%')")
+    @Query("SELECT b FROM Book b WHERE LOWER(b.title) LIKE LOWER(CONCAT('%', :keyword, '%'))" +
+            "OR LOWER(b.author) LIKE LOWER(CONCAT('%', :keyword, '%'))" +
+            "OR LOWER(b.comment) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     Page<Book> findBooksByKeyword(String keyword, Pageable pageable);
 
     Page<Book> findBooksByStatus(BookStatus status, Pageable pageable);

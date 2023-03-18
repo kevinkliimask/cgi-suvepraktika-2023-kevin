@@ -4,8 +4,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { take } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
-import { BookService } from '../../services/book.service';
-import { Book } from '../../models/book';
+import { BookService } from '../../../services/book.service';
+import { Book } from '../../../models/book';
 
 @Component({
   selector: 'app-book-detail',

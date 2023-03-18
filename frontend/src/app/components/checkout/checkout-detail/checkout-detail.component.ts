@@ -4,8 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { take } from 'rxjs';
 
-import { CheckoutService } from '../../services/checkout.service';
-import { Checkout } from '../../models/checkout';
+import { CheckoutService } from '../../../services/checkout.service';
+import { Checkout } from '../../../models/checkout';
 
 @Component({
   selector: 'app-checkout-detail',
