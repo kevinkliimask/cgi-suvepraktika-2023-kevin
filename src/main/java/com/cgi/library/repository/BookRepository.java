@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, UUID> {
+    // https://www.youtube.com/watch?v=ap0JhiIT5RI
     @Query("SELECT b FROM Book b WHERE LOWER(b.title) LIKE LOWER(CONCAT('%', :keyword, '%'))" +
             "OR LOWER(b.author) LIKE LOWER(CONCAT('%', :keyword, '%'))" +
             "OR LOWER(b.comment) LIKE LOWER(CONCAT('%', :keyword, '%'))")

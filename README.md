@@ -1,3 +1,19 @@
+# My added features
+- Pagination, sorting and filtering for books and checkouts list
+- Search bar to find books by title, author or comment
+- Book details view, functionality to edit or delete a book
+- Checkout details view
+
+# Feedback
+Working with front-end was easy for me as I have experience using Angular. Mostly implemented front-end
+on my own, only had to occasionally google information on material components or rxjs operators.
+Working on back-end was harder for me as I don't have much experience with Spring Boot. I had to
+find information from the internet for most of the changes made the in back-end, especially
+for pagination, database querying and DTO validation.
+
+# Fix for Angular
+https://stackoverflow.com/a/49381911/14329401
+
 # Test assignment
 
 Welcome to CGI test assignment!
@@ -71,7 +87,3 @@ If you have any questions, please reach out without hesitation. Best of luck!
 Reader should not be able to add / modify / delete existing book information or tamper with checkouts
 but should be able to save favorites and check out / return books (that they have checked out)
 * Containerize your application to make it cloud-native
-
-# Fix for Angular
-https://stackoverflow.com/a/49381911/14329401
-

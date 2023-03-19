@@ -36,9 +36,6 @@ export class BookCheckoutComponent implements OnInit {
         borrowerLastName: this.form.value.borrowerLastName!,
         borrowedBookId: this.bookId,
       })
-      .subscribe({
-        next: () => this.router.navigateByUrl('/'),
-        error: (error) => console.log(error),
-      });
+      .subscribe(() => this.router.navigateByUrl('/'));
   }
 }

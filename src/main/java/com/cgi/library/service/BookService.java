@@ -27,6 +27,7 @@ public class BookService {
     public Page<BookDTO> getBooks(Pageable pageable, String searchQuery) {
         ModelMapper modelMapper = ModelMapperFactory.getMapper();
         if (searchQuery != null) {
+            // https://www.bezkoder.com/spring-boot-pagination-filter-jpa-pageable/
             if (searchQuery.equals("AVAILABLE") || searchQuery.equals("BORROWED"))
                 return bookRepository.findBooksByStatus(BookStatus.valueOf(searchQuery), pageable).map(book -> modelMapper.map(book, BookDTO.class));
             return bookRepository.findBooksByKeyword(searchQuery, pageable).map(book -> modelMapper.map(book, BookDTO.class));
