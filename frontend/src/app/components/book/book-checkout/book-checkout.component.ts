@@ -1,7 +1,6 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs';
 
 import { CheckoutService } from '../../../services/checkout.service';
 
@@ -19,14 +18,14 @@ export class BookCheckoutComponent implements OnInit {
   bookId!: string;
 
   constructor(
-    private checkoutService: CheckoutService,
-    private route: ActivatedRoute,
-    private router: Router
+    private readonly checkoutService: CheckoutService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
     this.route.params
-      .pipe(take(1))
+      .pipe()
       .subscribe((params) => (this.bookId = params['id']));
   }
 

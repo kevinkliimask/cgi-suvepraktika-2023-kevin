@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { take } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
-import { BookService } from '../../../services/book.service';
 import { Book } from '../../../models/book';
+import { BookService } from '../../../services/book.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -29,27 +28,16 @@ export class BookDetailComponent implements OnInit {
   editing = false;
 
   constructor(
-    private bookService: BookService,
-    private route: ActivatedRoute,
-    private router: Router
+    private readonly bookService: BookService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
   ) {}
 
   ngOnInit(): void {
-    this.route.params
-      .pipe(map((params) => params['id']))
-      .pipe(
-        switchMap((id) => this.bookService.getBook(id)),
-        take(1)
-      )
-      .subscribe((book) => {
-        this.book = book;
-        this.initializeBookData();
-      });
+    this.getBook();
   }
 
   onSubmit(): void {
-    this.toggleEditing();
-
     const { title, author, genre, year, comment, ...unchangedValues } =
       this.book;
     const body = <Book>{
@@ -60,7 +48,8 @@ export class BookDetailComponent implements OnInit {
       year: this.form.value.year ? +this.form.value.year : null,
       comment: this.form.value.comment,
     };
-    this.bookService.saveBook(body).subscribe();
+    this.bookService.saveBook(body).subscribe(() => this.getBook());
+    this.toggleEditing();
   }
 
   async deleteBook(): Promise<void> {
@@ -70,20 +59,13 @@ export class BookDetailComponent implements OnInit {
 
   toggleEditing(): void {
     this.editing = !this.editing;
+    const affectedControls = ['title', 'author', 'genre', 'year', 'comment'];
 
-    if (this.editing) {
-      this.form.controls.title.enable();
-      this.form.controls.author.enable();
-      this.form.controls.genre.enable();
-      this.form.controls.year.enable();
-      this.form.controls.comment.enable();
-    } else {
-      this.form.controls.title.disable();
-      this.form.controls.author.disable();
-      this.form.controls.genre.disable();
-      this.form.controls.year.disable();
-      this.form.controls.comment.disable();
-    }
+    affectedControls.forEach((control) =>
+      this.editing
+        ? this.form.get(control)!.enable()
+        : this.form.get(control)!.disable()
+    );
 
     this.initializeBookData();
   }
@@ -100,5 +82,17 @@ export class BookDetailComponent implements OnInit {
       dueDate: this.book.dueDate ?? '',
       comment: this.book.comment ?? '',
     });
+  }
+
+  private getBook(): void {
+    this.route.params
+      .pipe(
+        map((params) => params['id']),
+        switchMap((id) => this.bookService.getBook(id))
+      )
+      .subscribe((book) => {
+        this.book = book;
+        this.initializeBookData();
+      });
   }
 }

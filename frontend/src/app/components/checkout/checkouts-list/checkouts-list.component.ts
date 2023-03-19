@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Page, SortDirection } from '../../../models/page';
 import { Checkout } from '../../../models/checkout';
 import { CheckoutService } from '../../../services/checkout.service';
+import { Page, SortDirection } from '../../../models/page';
 
 @Component({
   selector: 'app-checkouts-list',
@@ -16,12 +16,12 @@ export class CheckoutsListComponent {
   page!: number;
 
   constructor(
-    private checkoutService: CheckoutService,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly checkoutService: CheckoutService,
+    private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParamMap.subscribe(async (params) => {
+    this.route.queryParamMap.subscribe(async (params) => {
       this.page = +(params.get('page') ?? 1);
       if (this.page < 1) this.page = 1;
 

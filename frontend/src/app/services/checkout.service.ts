@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { Checkout } from '../models/checkout';
+import { CreateCheckout } from '../models/create-checkout';
 import { Page, PageRequest } from '../models/page';
 import { RestUtil } from './rest-util';
-import { Checkout } from '../models/checkout';
 import { environment } from '../../environments/environment';
-import { CreateCheckout } from '../models/create-checkout';
 
 @Injectable({
   providedIn: 'root',

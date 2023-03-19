@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { Book } from '../../../models/book';
 import { BookService } from '../../../services/book.service';
 import { Page, SortDirection } from '../../../models/page';
-import { Book } from '../../../models/book';
 
 @Component({
   selector: 'app-books-list',
@@ -16,12 +16,12 @@ export class BooksListComponent implements OnInit {
   page!: number;
 
   constructor(
-    private bookService: BookService,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly bookService: BookService,
+    private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParamMap.subscribe(async (params) => {
+    this.route.queryParamMap.subscribe((params) => {
       this.page = +(params.get('page') ?? 1);
       if (this.page < 1) this.page = 1;
 

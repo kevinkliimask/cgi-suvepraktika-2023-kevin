@@ -1,11 +1,10 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
-import { take } from 'rxjs';
 
-import { CheckoutService } from '../../../services/checkout.service';
 import { Checkout } from '../../../models/checkout';
+import { CheckoutService } from '../../../services/checkout.service';
 
 @Component({
   selector: 'app-checkout-detail',
@@ -24,16 +23,15 @@ export class CheckoutDetailComponent implements OnInit {
   checkout!: Checkout;
 
   constructor(
-    private checkoutService: CheckoutService,
-    private route: ActivatedRoute
+    private readonly checkoutService: CheckoutService,
+    private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.route.params
-      .pipe(map((params) => params['id']))
       .pipe(
-        switchMap((id) => this.checkoutService.getCheckout(id)),
-        take(1)
+        map((params) => params['id']),
+        switchMap((id) => this.checkoutService.getCheckout(id))
       )
       .subscribe((checkout) => {
         this.checkout = checkout;
