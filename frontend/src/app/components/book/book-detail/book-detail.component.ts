@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { take } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -30,7 +30,8 @@ export class BookDetailComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -62,6 +63,11 @@ export class BookDetailComponent implements OnInit {
     this.bookService.saveBook(body).subscribe();
   }
 
+  async deleteBook(): Promise<void> {
+    this.bookService.deleteBook(this.book.id).subscribe();
+    await this.router.navigateByUrl('/');
+  }
+
   toggleEditing(): void {
     this.editing = !this.editing;
 
@@ -78,6 +84,8 @@ export class BookDetailComponent implements OnInit {
       this.form.controls.year.disable();
       this.form.controls.comment.disable();
     }
+
+    this.initializeBookData();
   }
 
   private initializeBookData(): void {

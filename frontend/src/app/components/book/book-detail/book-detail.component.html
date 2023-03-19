@@ -21,11 +21,12 @@
         <mat-label>Comment</mat-label>
         <mat-form-field appearance="outline"><input matInput formControlName="comment"></mat-form-field>
         <div class="buttons">
-          <button mat-raised-button *ngIf="!editing" (click)="toggleEditing()">Edit</button>
+          <button mat-raised-button type="button" *ngIf="!editing" (click)="toggleEditing()">Edit</button>
           <button mat-raised-button type="submit" *ngIf="editing">Save changes</button>
-          <button mat-raised-button *ngIf="editing" (click)="toggleEditing()">Cancel</button>
-          <a mat-raised-button *ngIf="!editing" [disabled]="book && book.status !== 'AVAILABLE'" routerLink="checkout">Check out</a>
+          <button mat-raised-button type="button" *ngIf="editing" (click)="toggleEditing()">Cancel</button>
+          <a mat-raised-button type="button" *ngIf="!editing" [disabled]="book && book.status !== 'AVAILABLE'" routerLink="checkout">Check out</a>
         </div>
+        <button mat-raised-button class="delete" type="button" *ngIf="editing" (click)="deleteBook()">Remove book</button>
       </form>
     </mat-card-content>
   </mat-card>

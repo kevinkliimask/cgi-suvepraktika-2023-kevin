@@ -1,5 +1,6 @@
 package com.cgi.library.service;
 
+import com.cgi.library.entity.Book;
 import com.cgi.library.entity.CheckOut;
 import com.cgi.library.model.BookDTO;
 import com.cgi.library.model.BookStatus;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -57,5 +59,9 @@ public class CheckOutService {
 
     public void deleteCheckOut(UUID checkOutId) {
         checkOutRepository.deleteById(checkOutId);
+    }
+
+    public List<CheckOut> getCheckOutsByBook(Book book) {
+        return checkOutRepository.findCheckOutsByBorrowedBook(book);
     }
 }
